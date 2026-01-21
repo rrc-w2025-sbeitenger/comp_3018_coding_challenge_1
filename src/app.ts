@@ -10,8 +10,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/services", (req, res) => {
-    let player_id = req.query.id;
-    res.send(checkStatsByID(Number(player_id)));    
+    let player_id = Number(req.query.id);
+    if (player_id <= 3 || player_id > 0) {
+        return res.send(checkStatsByID(player_id));
+    }
+    else {
+        return res.send("Error 404");
+    }   
 });
 
 export default app;
