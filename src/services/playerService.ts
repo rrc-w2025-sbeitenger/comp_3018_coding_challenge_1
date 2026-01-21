@@ -30,6 +30,12 @@ const players: Player[] = [
     }
 ]
 
+/**
+ * @param id 
+ * Compares the input Id to the Player Array then returns the
+ * appropriate Player Stats
+ * @returns Player Data based on id
+ */
 export function checkStatsByID(id: number): any {
     for (const playerId of players) {
         if (playerId.id === id) {
