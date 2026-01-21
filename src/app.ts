@@ -1,4 +1,5 @@
 import express, { Express } from "express";
+import { checkStatsByID } from "./services/playerService";
 
 // Initialize Express application
 const app: Express = express();
@@ -9,7 +10,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/services", (req, res) => {
-    res.send("Hello, Services!");
+    let player_id = req.query.id;
+    res.send(checkStatsByID(Number(player_id)));    
 });
 
 export default app;
